@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eşleştirme Oyunu</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="cards.js"></script>
+    <script src="js.js"></script>
+    <script>
+    function adjustCardHeight() {
+        var gameBoardContainer = document.getElementById('game-board-container');
+        var cardHeight = (gameBoardContainer.clientHeight - 100) / 3;
+        var cards = document.querySelectorAll('.card');
+        cards.forEach(function(card) {
+            card.style.height = cardHeight + 'px';
+        });
+    }
+    function hazirlik() {
+        startGame()
+    }
+    if (window.Event) // Only Netscape will have the CAPITAL E.
+  document.captureEvents(Event.MOUSEUP); // catch the mouse up event
+function nocontextmenu()  // this function only applies to IE4, ignored otherwise.
+{
+    event.cancelBubble = true
+    event.returnValue = false;
+    return false;
+}
+function norightclick(e)    // This function is used by all others
+{
+    if (window.Event)   // again, IE or NAV?
+    {
+        if (e.which == 2 || e.which == 3)
+            return false;
+    }
+    else
+        if (event.button == 2 || event.button == 3)
+        {
+            event.cancelBubble = true
+            event.returnValue = false;
+            return false;
+        }
+}
+document.oncontextmenu = nocontextmenu;     // for IE5+
+document.onmousedown = norightclick;        // for all others
+    </script>
+</head>
+<body onload="hazirlik();">
+    <div id="ust">
+        <div id="timer" style="top: 10px">0.0</div>
+    </div>
+    <div id="oyun">
+        <div id="game-board-container">
+        <div id="game-board"></div>
+    </div>
+    </div>
+    <div id="acilis">
+        <div id="ac">
+            <img src="image.png" alt="Kartlar">
+            <h2 id="tz"></h2>
+            <p style="font-size: 1rem;font-weight: 400;line-height: 1.5;">Tüm terimleri tanımlarıyla mümkün olan en hızlı şekilde eşletirmelisin. Eşleştirmeyi yanlış yaparsan süre uzar!</p>
+        <center>
+            <br>
+            <button id="st" onclick="startGame();adjustCardHeight();">Oyunu Başlat</button>
+        </center>
+        </div>
+
+    </div>
+</body>
+</html>

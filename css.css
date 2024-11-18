@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #eceef7;
+    font-family: Arial;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Tüm ekran yüksekliği */
+}
+#ust {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+}
+#oyun {
+    text-align: center;
+    background-color: #f6f7fb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Boş alanı doldur */
+    height: calc(100vh - 50px); /* Üst kısım hariç kalan yükseklik */
+}
+
+#game-board-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#game-board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 12px;
+    max-width: 80%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.card {
+    width: calc(25% - 20px); /* Ekrana daha fazla kart sığdırmak için genişliği yüzde olarak belirledik ve boşlukları hesaba kattık */
+    flex-grow: 1;
+    background-color: #fffffff3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 32px 0 #282e3e14;
+    border-radius: 16px;
+    box-sizing: border-box;
+    margin: 5px;
+    color: #282e3e;
+    border: 3px solid #d9dde8;
+}
+
+.card:hover {
+    background-color: #edf5faf3;
+
+}
+
+@media (max-width: 800px) {
+    .card {
+        width: calc(33.33% - 20px); /* Orta boyutlu ekranlar için genişlik ayarı */
+    }
+}
+
+@media (max-width: 500px) {
+    .card {
+        width: calc(50% - 20px); /* Küçük ekranlar için genişlik ayarı */
+    }
+}
+
+.card.matched {
+    visibility: hidden;
+}
+
+.card.wrong {
+    background-color: #ff0000 !important;
+    border: 3px solid #ff0000 !important;
+}
+
+.card.selected {
+    border: 2px solid #00f;
+}
+
+#timer {
+    padding: 12px;
+    font-weight: bold;
+}
+#acilis {
+    width: 50vw;
+    margin-left: 25%;
+    position: relative;
+    top: calc(50vh - 100px);
+    height: min-content;
+    text-align: center;
+    color: #282e3e;
+}
+#ac {
+    position: absolute;
+    top: calc(50% + 64px);
+    transform: translate(-50%, -50%);
+    margin: 0;
+    left: 50%;
+    width: fit-content;
+}
+#st {
+    font-weight: bold;
+    padding: 1.135rem 1.885rem;
+    background: #4255ff;
+    color: #fff;
+    align-items: center;
+    border: .125rem solid #0000;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    transition: all .12s cubic-bezier(.47,0,.745,.715);
+    width: 100%;
+    font-size: 1rem;
+}
