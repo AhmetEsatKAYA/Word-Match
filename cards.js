@@ -2,7 +2,7 @@ var cards = [
     { word: '&#8730;20', meaning: '2&#8730;5' },
     { word: '&#8730;60', meaning: '2&#8730;15' },
     { word: '&#8730;24', meaning: '2&#8730;6' },
-    { word: 'Köpek', meaning: 'Evcil bir hayvan' },
+    { word: '&#8730;180', meaning: '6&#8730;5' },
     { word: 'Araba', meaning: 'Bir ulaşım aracı' },
     { word: 'Ev', meaning: 'İçinde yaşanılan yapı' },
     { word: 'Kalem', meaning: 'Yazmak için kullanılan bir araç' },
