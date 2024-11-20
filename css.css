@@ -60,6 +60,8 @@ body {
     margin: 5px;
     color: #282e3e;
     border: 3px solid #d9dde8;
+    
+    transition: all 0.3s ease;
 }
 
 .card:hover {
@@ -132,4 +134,17 @@ body {
     transition: all .12s cubic-bezier(.47,0,.745,.715);
     width: 100%;
     font-size: 1rem;
+}
+
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
 }

@@ -75,8 +75,22 @@ function checkMatch() {
     if ((card1.dataset.type === 'word' && card2.dataset.type === 'meaning' && cards.find(c => c.word === card1.dataset.content && c.meaning === card2.dataset.content)) ||
         (card1.dataset.type === 'meaning' && card2.dataset.type === 'word' && cards.find(c => c.meaning === card1.dataset.content && c.word === card2.dataset.content))) {
         matchedCards.push(card1, card2);
+        $(card1).animate({
+            opacity: 0.0
+          }, 500);
+        $(card2).animate({
+            opacity: 0.0
+        }, 500);
+        card1.style="background-color:green;";
+        card2.style="background-color:green;";
+
+
+        setTimeout(function(){
+
         card1.className = card1.className + ' matched';
         card2.className = card2.className + ' matched';
+        },300)
+
         flippedCards = [];
         if (matchedCards.length === gameCards.length) {
             showWinScreen();
@@ -85,8 +99,12 @@ function checkMatch() {
     } else {
         card1.classList.add('wrong');
         card2.classList.add('wrong');
-        timeElapsed += 20; // Yanlış bilindiğinde süreye 10 saniye ekle
+        timeElapsed += 10; // Yanlış bilindiğinde süreye 10 saniye ekle
         lockBoard = true;
+                
+        $(card2).addClass("shake");
+        $(card1).addClass("shake");
+
         setTimeout(function() {
             card1.className = 'card';
             card2.className = 'card';
@@ -94,7 +112,9 @@ function checkMatch() {
             card2.style.backgroundColor = '#fff';
             flippedCards = [];
             lockBoard = false;
-        }, 200);
+            $(card1).removeClass("shake");
+            $(card2).removeClass("shake");
+        }, 500);
     }
 }
 
