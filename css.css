@@ -136,6 +136,25 @@ body {
     font-size: 1rem;
 }
 
+#resetnow {
+    font-weight: bold;
+    padding: 1.135rem 1.885rem;
+    background: white;
+    color: #4255ff;
+    align-items: center;
+    border: .125rem solid #4255ff;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    transition: all .12s cubic-bezier(.47,0,.745,.715);
+    font-size: 1rem;
+    top: 5px;
+}
 
 @keyframes shake {
     0% { transform: translateX(0); }
