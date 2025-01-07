@@ -4,6 +4,11 @@ var matchedCards = [];
 var timer;
 var timeElapsed = 0;
 var lockBoard = false;
+var isSoundEnabled = true; // Ses varsayılan olarak açık
+// Ses dosyalarını yükle
+var correctSound = new Audio('sounds/correct.mp3');  // Doğru eşleşme sesi
+var wrongSound = new Audio('sounds/wrong.mp3');  // Yanlış eşleşme sesi
+
 
 function startGame() {
     document.getElementById("oyun").style = "display: block;";
@@ -28,6 +33,14 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
 }
 
+function toggleSound() {
+    isSoundEnabled = !isSoundEnabled; // Mevcut durumu tersine çevir
+
+    // Seçenekler menüsünde ses durumu bildiren bir metin veya buton yazısı ekleyebilirsiniz
+    const soundStatusText = document.getElementById('sound-status');
+    soundStatusText.innerHTML = isSoundEnabled ? "Sesi Kapat" : "Sesi Aç";
+}
+
 // Çerez okuma
 function getCookie(name) {
     const nameEQ = name + "=";
@@ -40,6 +53,19 @@ function getCookie(name) {
         }
     }
     return null;
+}
+
+function playCorrectSound() {
+    if (isSoundEnabled) { // Eğer ses açık ise
+        correctSound.play().catch(e => console.error('Ses çalarken hata:', e));
+    }
+}
+
+// Sesin yanlış eşleşme durumunda çalması
+function playWrongSound() {
+    if (isSoundEnabled) { // Eğer ses açık ise
+        wrongSound.play().catch(e => console.error('Ses çalarken hata:', e));
+    }
 }
 
 // Çerez silme
@@ -149,6 +175,9 @@ function checkMatch() {
         card1.classList.add('true');
         card2.classList.add('true');
 
+        
+        playCorrectSound();
+
         setTimeout(function() {
             card1.className = card1.className + ' matched';
             card2.className = card2.className + ' matched';
@@ -168,6 +197,8 @@ function checkMatch() {
 
         $(card2).addClass("shake");
         $(card1).addClass("shake");
+
+        playWrongSound();
 
         setTimeout(function() {
             card1.className = 'card';
