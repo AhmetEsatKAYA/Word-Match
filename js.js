@@ -19,7 +19,6 @@ function startGame() {
     createBoard();
     resetGame();
     startTimer();
-    adjustCardHeight()
 }
 
 // Çerez oluşturma
