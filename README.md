@@ -14,4 +14,6 @@
 	  Oyunda resimli eşleştirme ve animasyonlar eklendi
 - 1.3 Animasyon ve Resim Hataları Giderme Güncellemesi
 	Oyunda bulunan animasyon ve  resim eşleştirme hataları düzeltildi
-- 1.4 
+- 1.4 Ses Eklendi
+
+- 1.5 Ayarlar Menüsü Eklendi
