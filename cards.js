@@ -1,4 +1,4 @@
-var gamename = "Word Match";
+var gamename = "Kelime Eşleştirme Oyunu";
 
 var visible_image = false;
 
