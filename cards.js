@@ -1,6 +1,6 @@
 var gamename = "Kelime Eşleştirme Oyunu";
 
-var visible_image = false;
+var visible_image = true;
 
 var cards = [
     { word: 'Bilgisayar', meaning: 'Elektronik cihaz, verileri işleyip saklar.', image: ''},
