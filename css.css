@@ -11,6 +11,11 @@ body {
     height: 100vh;
 }
 
+img {
+    -webkit-user-drag: none; /* WebKit tabanlı tarayıcılar için */
+    user-drag: none; /* Diğer tarayıcılar için */
+}
+
 #ust {
     background-color: white;
     text-align: center;

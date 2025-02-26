@@ -117,14 +117,16 @@ function createBoard() {
         if (card.type === 'word') {
             cardElement.innerHTML = card.content; // Display the word
         } else if (card.type === 'meaning') {
+            if (visible_image == true){
             cardElement.innerHTML = card.content; // Display the meaning
+            }
         }
 
         // You can also show the image
 
         var img = document.createElement('img');
         if(card.image !== '') {
-        img.src = 'images/' + card.image; // Assuming images are stored in the 'images' folder
+        img.src = 'images/' + card.image + ".png"; // Assuming images are stored in the 'images' folder
         img.style.display = ''; // Initially hide the image
         }else {
             img.style.display = 'none'; // Initially hide the image
@@ -164,22 +166,25 @@ function checkMatch() {
     var card1 = flippedCards[0];
     var card2 = flippedCards[1];
 
-    if ((card1.dataset.type === 'word' && card2.dataset.type === 'meaning' && cards.find(c => c.word === card1.dataset.content && c.meaning === card2.dataset.content && c.image === card1.dataset.image)) ||
-        (card1.dataset.type === 'meaning' && card2.dataset.type === 'word' && cards.find(c => c.meaning === card1.dataset.content && c.word === card2.dataset.content && c.image === card1.dataset.image))) {
-        
+    // Kart bilgilerini al
+    var wordCard = card1.dataset.type === 'word' ? card1 : card2;
+    var meaningCard = card1.dataset.type === 'meaning' ? card1 : card2;
+
+    var matchedCard = cards.find(c => c.word === wordCard.dataset.content && c.meaning === meaningCard.dataset.content);
+
+    if (matchedCard) {
         matchedCards.push(card1, card2);
         $(card1).animate({ opacity: 0.0 }, 500);
         $(card2).animate({ opacity: 0.0 }, 500);
-        
+
         card1.classList.add('true');
         card2.classList.add('true');
 
-        
         playCorrectSound();
 
-        setTimeout(function() {
-            card1.className = card1.className + ' matched';
-            card2.className = card2.className + ' matched';
+        setTimeout(() => {
+            card1.classList.add('matched');
+            card2.classList.add('matched');
         }, 300);
 
         flippedCards = [];
@@ -194,23 +199,20 @@ function checkMatch() {
         timeElapsed += 10; // Yanlış eşleşme süresini uzatır
         lockBoard = true;
 
-        $(card2).addClass("shake");
         $(card1).addClass("shake");
+        $(card2).addClass("shake");
 
         playWrongSound();
 
-        setTimeout(function() {
-            card1.className = 'card';
-            card2.className = 'card';
-            card1.style.backgroundColor = '#fff';
-            card2.style.backgroundColor = '#fff';
+        setTimeout(() => {
+            card1.classList.remove("wrong", "shake", "selected");
+            card2.classList.remove("wrong", "shake", "selected");
             flippedCards = [];
             lockBoard = false;
-            $(card1).removeClass("shake");
-            $(card2).removeClass("shake");
         }, 500);
     }
 }
+
 
 function showWinScreen() {
     document.getElementById('acilis').style.display = 'block';
