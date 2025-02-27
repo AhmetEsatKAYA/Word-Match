@@ -1,8 +1,8 @@
-# Karekök Oyunu
-
+# Kelime Eşleştirme Oyunu
+[Oynamak için tıklayın](https://ahmetesatkaya.github.io/Word-Match)
  
 
-> Kareköklü ifadelerin karşılıklarıyla eşleştirilmesine dayanan hızın ve matematik bilgisinin çok önemli olduğu bir oyun
+> Terimlerin karşılıklarıyla eşleştirilmesine dayanan hızın ve kelime bilgisinin bilgisinin çok önemli olduğu bir oyun
 > 
 *Sürümler*
  - 1.0 Oyunun İlkel Hali Yapıldı
@@ -17,4 +17,3 @@
 - 1.4 Ses Eklendi
 
 - 1.5 Ayarlar Menüsü Eklendi
-ahmetesatkaya.github.io/Word-Match
